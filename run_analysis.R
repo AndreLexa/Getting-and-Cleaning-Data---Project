@@ -2,7 +2,6 @@
 #  Getting and Cleaning Data - Project  #
 #  by: Alexandre C. Tondolo             #
 # ===== # ===== # ===== # ===== # ===== #
-
 library(reshape2)
 
 # ===== # ===== # ===== # ===== # ===== # ===== # ===== # ===== # ===== # ===== # ===== # ===== # ===== #
@@ -79,11 +78,6 @@ names(dataMerged) <- gsub("Jerk", "Jerk_", names(dataMerged))
 ## each variable for each activity and each subject.
 
 newTidy <- dataMerged
-
-# newTidy <- group_by(dataMerged, Subjects)
-# newTidy <- newTidy[order(newTidy$Subjects), ]
-
-
 
 dm=melt(newTidy, id.var= c('Activities', 'Subjects'))
 dmg=group_by(dm, Activities, Subjects, variable);
